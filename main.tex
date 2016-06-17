@@ -1,0 +1,68 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{pifont}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+\usetheme{Singapore}
+
+\graphicspath{{./images/}{./images/logos/}}
+
+\begin{document}
+
+\title[Die Kunst]{Softwareentwicklungsprozess: \\ Die Kunst}
+\date{\today}
+\author{Oleg H"ofling}
+\institute[netqa]{netqa GmbH}
+\logo{
+	\includegraphics[scale=.05]{netqa-logo.eps}
+} % end logo
+\frame{\maketitle}
+
+\frame{
+\frametitle{"Uberblick}
+\tableofcontents
+}
+
+\section[Inhalt]{Einf"uhrung}
+
+\begin{frame}
+	\begin{itemize}
+		\setlength\itemsep{2em}
+		\item<1->[] \parbox{\linewidth}{\centering \includegraphics[scale=.25]{so-logo.eps}}
+		\item<2->[] \parbox{\linewidth}{\centering \includegraphics[scale=.25]{trello-logo-blue.eps}}
+	\end{itemize}
+\end{frame}
+
+\section[Inhalt]{Was anderes}
+
+\begin{frame}{Der Joel Test}
+	\begin{enumerate}
+		\item<1-> Do you use source control? \uncover<2->{\cmark}
+		\item<3-> Can you make a build in one step? \uncover<4->{\xmark}
+		\item<5-> Do you make daily builds? \uncover<6->{\xmark}
+		\item<7-> Do you have a bug database? \uncover<8->{\xmark}
+		\item<9-> Do you fix bugs before writing new code? \uncover<10->{\cmark}
+		\item<11-> Do you have an up-to-date schedule? \uncover<12->{\xmark}
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{Der Joel Test, Teil II}
+	\begin{enumerate}
+		\setcounter{enumi}{6}
+		\item<1-> Do you have a spec? \uncover<2->{\xmark}
+		\item<3-> Do programmers have quiet working conditions? \uncover<4->{\cmark}
+		\item<5-> Do you use the best tools money can buy? \uncover<6->{\cmark}
+		\item<7-> Do you have testers? \uncover<8->{\cmark}
+		\item<9-> Do new candidates write code during their interview? \uncover<10->{\xmark}
+		\item<11-> Do you do hallway usability testing? \uncover<12->{\xmark}
+	\end{enumerate}
+\end{frame}
+
+\end{document}
