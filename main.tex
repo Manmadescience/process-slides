@@ -6,6 +6,7 @@
 \usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{pifont}
+\usepackage{tikz}
 
 \newcommand{\cmark}{\ding{51}}
 \newcommand{\xmark}{\ding{55}}
@@ -25,22 +26,36 @@
 } % end logo
 \frame{\maketitle}
 
-\frame{
-\frametitle{"Uberblick}
-\tableofcontents
-}
+\frame{\frametitle{"Uberblick}\tableofcontents[hideallsubsections]}
 
-\section[Inhalt]{Einf"uhrung}
-
+\section{Ziele}
+\subsection{Placeholder}
 \begin{frame}
-	\begin{itemize}
-		\setlength\itemsep{2em}
-		\item<1->[] \parbox{\linewidth}{\centering \includegraphics[scale=.25]{so-logo.eps}}
-		\item<2->[] \parbox{\linewidth}{\centering \includegraphics[scale=.25]{trello-logo-blue.eps}}
+	\begin{itemize}[<+->]
+		\item[\cmark] Eigene Erfahrungen teilen
+		\item[\cmark] \textbf{Konstruktive} Kritik
+		\item[\cmark] Aufgaben in akute und langfristige aufteilen
+		\item[\cmark] Anregung zur Diskussion
+		\item[\xmark] Schuldzuweisung
 	\end{itemize}
 \end{frame}
 
-\section[Inhalt]{Was anderes}
+\section{Joel Test}
+\subsection{Placeholder}
+\begin{frame}{Joel Spolsky}
+	\begin{center}
+		\includegraphics[width=.4\textwidth]{spolsky.jpeg}
+		%\hfill
+		%\includegraphics[width=.4\textwidth]{spolsky-meme.jpg}
+	\end{center}
+\end{frame}
+\begin{frame}{Joel Spolsky}
+	\begin{itemize}
+		\setlength\itemsep{2em}
+		\item[] \parbox{\linewidth}{\centering \includegraphics[width=.5\textwidth]{so-logo.eps}}
+		\item[] \parbox{\linewidth}{\centering \includegraphics[width=.5\textwidth]{trello-logo-blue.eps}}
+	\end{itemize}
+\end{frame}
 
 \begin{frame}{Der Joel Test}
 	\begin{enumerate}
@@ -63,6 +78,12 @@
 		\item<9-> Do new candidates write code during their interview? \uncover<10->{\xmark}
 		\item<11-> Do you do hallway usability testing? \uncover<12->{\xmark}
 	\end{enumerate}
+\end{frame}
+
+\begin{frame}{Ergebnis}
+	\begin{center}
+		\includegraphics[scale=.25]{sad-kid.jpg}
+	\end{center}
 \end{frame}
 
 \end{document}
