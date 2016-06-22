@@ -4,7 +4,7 @@
 \tikzstyle{clabel}=[right,outer sep=1em]
 \tikzstyle{every path}=[draw]
 \tikzstyle{branch}=[draw,rectangle,fill=yellow,inner sep=.5ex,minimum width=2ex, minimum height=2ex]
-\tikzstyle{tag}=[draw,rectangle,fill=white,inner sep=.5ex,minimum width=2ex, minimum height=2ex]
+\tikzstyle{tag}=[draw,rectangle,fill=blue!30,inner sep=.5ex,minimum width=2ex, minimum height=2ex]
 
 \node[commit] (966a68d) at (0.0,0) {};
 \node[right,xshift=4.0] (label_966a68d) at (966a68d.east) {\verb!966a68d Merge branch 'another-cool-feature' into develop!};
@@ -92,6 +92,6 @@
 \draw[->] (dcbd56b) -- (eb85dd5);
 \node[branch,right,xshift=.1] (develop) at (label_966a68d.east) {\verb!develop!};
 \node[branch,right,xshift=.1] (master) at (label_c95ac20.east) {\verb!master!};
-\node[tag,right,xshift=.1] (v1.0) at (label_9271ce9.east) {\verb!v1.0!};
-\node[tag,right,xshift=.1] (v2.0) at (label_966a68d.east) {\verb!v2.0!};
+\node[tag,right,xshift=.1] (label_tag_v1.0) at (label_9271ce9.east) {\verb!v1.0!};
+\node[tag,right,xshift=1.1] (label_tag_v2.0) at (master.east) {\verb!v2.0!};
 \end{tikzpicture}
