@@ -44,18 +44,24 @@
 \section{Joel Test}
 \subsection{Placeholder}
 \begin{frame}{Joel Spolsky}
-	\begin{center}
-		\includegraphics[width=.4\textwidth]{spolsky.jpeg}
-		%\hfill
-		%\includegraphics[width=.4\textwidth]{spolsky-meme.jpg}
-	\end{center}
-\end{frame}
-\begin{frame}{Joel Spolsky}
-	\begin{itemize}
-		\setlength\itemsep{2em}
-		\item[] \parbox{\linewidth}{\centering \includegraphics[width=.5\textwidth]{so-logo.eps}}
-		\item[] \parbox{\linewidth}{\centering \includegraphics[width=.5\textwidth]{trello-logo-blue.eps}}
-	\end{itemize}
+	\begin{columns}[T] % align columns
+		\begin{column}{.49\textwidth}
+			\vfill
+			\begin{center}
+				\includegraphics[scale=.25]{spolsky.jpeg}
+			\end{center}
+			\vfill
+		\end{column}
+		\hfill
+		\begin{column}[t]{0.49\textwidth}
+			\vfill
+				\includegraphics[scale=.25]{so-logo.eps}
+			\vfill
+				\includegraphics[scale=.25]{trello-logo-blue.eps}
+			\vfill
+				\includegraphics[scale=.75]{fogbugz.eps}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}{Der Joel Test}
@@ -72,12 +78,12 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Der Joel Test}
+\begin{frame}{Der Joel Test, Teil I}
 	\begin{enumerate}
 		\item<1-> Do you use source control? \uncover<2->{\cmark}
 		\item<3-> Can you make a build in one step? \uncover<4->{\xmark}
 		\item<5-> Do you make daily builds? \uncover<6->{\xmark}
-		\item<7-> Do you have a bug database? \uncover<8->{\xmark}
+		\item<7-> Do you have a bug database? \uncover<8->{\cmark}
 		\item<9-> Do you fix bugs before writing new code? \uncover<10->{\cmark}
 		\item<11-> Do you have an up-to-date schedule? \uncover<12->{\xmark}
 	\end{enumerate}
