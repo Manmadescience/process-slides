@@ -7,6 +7,7 @@
 \usepackage{amssymb}
 \usepackage{pifont}
 \usepackage{tikz}
+\usepackage{tikzsymbols}
 
 \newcommand{\cmark}{\ding{51}}
 \newcommand{\xmark}{\ding{55}}
@@ -54,6 +55,20 @@
 		\setlength\itemsep{2em}
 		\item[] \parbox{\linewidth}{\centering \includegraphics[width=.5\textwidth]{so-logo.eps}}
 		\item[] \parbox{\linewidth}{\centering \includegraphics[width=.5\textwidth]{trello-logo-blue.eps}}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Der Joel Test}
+	\begin{itemize}
+		\item<1-> Einfach und schnell
+		\item<2-> Es wird der \textbf{Softwareentwicklungsprozess} evaluiert
+		\item<3-> 12 Fragen, ein Punkt f"ur jede \glqq{}Ja\grqq{}-Antwort
+		\item<4-> Auswertung:
+			\begin{description}[labelwidth=\widthof{10 Punkte:}]
+				\item[12 Punkte:] \Laughey
+				\item[11 Punkte:] \Neutrey
+				\item[$\leqslant 10$ Punkte:] \Xey
+			\end{description}
 	\end{itemize}
 \end{frame}
 
