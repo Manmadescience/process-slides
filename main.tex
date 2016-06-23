@@ -8,6 +8,7 @@
 \usepackage{pifont}
 \usepackage{tikz}
 \usepackage{tikzsymbols}
+\usepackage{listings}
 
 \newcommand{\cmark}{\ding{51}}
 \newcommand{\xmark}{\ding{55}}
@@ -18,7 +19,7 @@
 
 \begin{document}
 
-\title[Die Kunst]{Softwareentwicklungsprozess: \\ Die Kunst}
+\title{Softwareentwicklungsprozess: \\ Vorschl"age}
 \date{\today}
 \author{Oleg H"ofling}
 \institute[netqa]{netqa GmbH}
@@ -32,7 +33,7 @@
 \section{Ziele}
 \subsection{Placeholder}
 \begin{frame}
-	\begin{itemize}[<+->]
+	\begin{itemize}
 		\item[\cmark] Eigene Erfahrungen teilen
 		\item[\cmark] \textbf{Konstruktive} Kritik
 		\item[\cmark] Aufgaben in akute und langfristige aufteilen
@@ -66,10 +67,10 @@
 
 \begin{frame}{Der Joel Test}
 	\begin{itemize}
-		\item<1-> Einfach und schnell
-		\item<2-> Es wird der \textbf{Softwareentwicklungsprozess} evaluiert
-		\item<3-> 12 Fragen, ein Punkt f"ur jede \glqq{}Ja\grqq{}-Antwort
-		\item<4-> Auswertung:
+		\item Einfach und schnell
+		\item Es wird der \textbf{Softwareentwicklungsprozess} evaluiert
+		\item 12 Fragen, ein Punkt f"ur jede \glqq{}Ja\grqq{}-Antwort
+		\item Auswertung:
 			\begin{description}[labelwidth=\widthof{10 Punkte:}]
 				\item[12 Punkte:] \Laughey
 				\item[11 Punkte:] \Neutrey
@@ -107,23 +108,24 @@
 	\end{center}
 \end{frame}
 
-\section{Git Flow}
+\section{Operative Ziele}
 \subsection{Placeholder}
 \begin{frame}{Git Flow}
 	\begin{columns}[T] % align columns
-		\begin{column}{.33\textwidth}
+		\begin{column}{.2\textwidth}
 			\resizebox{!}{.8\textheight}{
 					\input{git-mess}
 			}
 		\end{column}
 		\hfill
-		\begin{column}{.67\textwidth}
+		\begin{column}{.8\textwidth}
 			\vfill
-			\begin{itemize}[<+->]
-				\item So sieht's im Moment aus
-				\item Keine Struktur zu erkennen
-				\item Futter f"ur Mergekonflikte
-				\item Fehlersuche mit \texttt{git bisect} wird schwer
+			\begin{itemize}
+				\item<1-> So sieht's im Moment aus
+				\item<1-> Keine Struktur zu erkennen
+				\item<1-> Futter f"ur Mergekonflikte
+				\item<1-> Fehlersuche mit \texttt{git bisect} wird erschwert
+				\item<2->[] \fbox{\includegraphics[scale=.33]{git-rebase-coming.jpg}}
 			\end{itemize}
 		\end{column}
 	\end{columns}
@@ -143,6 +145,123 @@
 		
 		\includegraphics[height=.8\textheight]{git-model.png}
 	\end{center}
+\end{frame}
+
+\begin{frame}{Git Flow}
+	\begin{itemize}
+		\item Prozess in Trello (vollst"andig?) dokumentiert
+		\item Kleine Commits (duh!)
+		\item Sinnvolle Branchnamen und Commit Messages
+		\item Branchname als Prefix im Commit Message
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Git Flow}
+	\only<1>{
+		\resizebox{!}{.6\textheight}{
+			\input{git-branch-no-names}
+		}
+	}
+	\only<2>{
+		\resizebox{!}{.6\textheight}{
+			\input{git-branch-names}
+		}
+	}
+\end{frame}
+
+\begin{frame}{Stylechecking}
+	\begin{itemize}
+		\item Einheitliche Formatierung
+			\begin{itemize}
+				\item Ein Tab ist 4 Leerzeichen lang
+				\item Klassen: \texttt{CamelCase}
+				\item Variablen: \texttt{lower\char`_case\char`_with\char`_underscores}
+				\item Keine Leerzeichen am Zeilenende
+				\item \texttt{text = 'netqa'} oder \texttt{text = "netqa"}?
+			\end{itemize}
+		\item Merge-Konflikte vermeiden
+		\item Disziplin
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Stylechecking: Python}
+	\begin{itemize}
+		\item Minimalsatz an Regeln ausarbeiten		
+		\item \texttt{PEP\,8} und \texttt{Pylint}
+		\item Automatisches Stylechecking vor dem Commit bereits eingerichtet
+		\item Aktuell 1554 Verletzungen
+		\item \texttt{Pylint} bietet Code-Rating an:
+	\end{itemize}
+	\begin{center}
+		\begin{minipage}{.8\textwidth}
+			\texttt{Global evaluation}
+
+			\texttt{-----------------}
+
+			\texttt{Your code has been rated at 6.02/10 (previous run: 6.46/10, -0.44)}
+		\end{minipage}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Stylechecking: Javascript}
+	\begin{itemize}
+		\item Anwendung:
+			\begin{itemize}
+				\item Dashboard \cmark
+				\item Reports?
+			\end{itemize}
+		\item Kein etablierter Linter
+		\item Strict-Mode f"ur JS-Compilers:
+		\item[] \texttt{'use strict';}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Nightly Builds}
+	\begin{itemize}
+		\item Der Build-Prozess fehlt
+			\begin{itemize}
+				\item Standalone-Installer?
+				\item Web Service Deployment?
+			\end{itemize}
+		\item Integration mit Jenkins
+			\begin{itemize}
+				\item Cron-Job, startet um 23 Uhr
+				\item Baut \texttt{develop} und \texttt{release}
+				\item Setzt Tags in \texttt{Git} (Version usw)
+				\item F"uhrt Unit Tests aus
+				\item F"uhrt Integration Tests aus
+				\item Report wird am n"achsten Morgen evaluiert
+				\item Standalone: Stabile Builds werden Kunden zum Download angeboten
+				\item Web Service: Deployment auf den Production Server
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Versionierung}
+	\begin{equation*}
+		\underbrace{1}_{\text{Major}}.\underbrace{5}_{\text{Minor}}.\underbrace{11}_{\text{Features}}.\underbrace{255}_{\text{Survived Days}}
+	\end{equation*}
+	\vfill
+	\begin{description}[Survived Days:]
+		\item[Major:] Version vom letzten Release
+		\item[Minor:] Bugfixes f"ur das letzte Release
+		\item[Features:] Anzahl Features im aktuellen Develop
+		\item[Survived Days:] Anzahl Tage seit dem letzten Release
+		\item[Ansonsten:] \texttt{PEP\,396 -- Module Version Numbers}
+	\end{description}
+\end{frame}
+
+\section{Strategische Ziele}
+
+\begin{frame}
+	\begin{itemize}
+		\item Specification-Dokument
+		\item Agiler Prozess
+			\begin{itemize}
+				\item Scrum
+				\item Kanban
+			\end{itemize}
+	\end{itemize}
 \end{frame}
 
 \end{document}
