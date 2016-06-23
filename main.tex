@@ -8,7 +8,7 @@
 \usepackage{pifont}
 \usepackage{tikz}
 \usepackage{tikzsymbols}
-\usepackage{listings}
+\usepackage{booktabs}
 
 \newcommand{\cmark}{\ding{51}}
 \newcommand{\xmark}{\ding{55}}
@@ -34,11 +34,11 @@
 \subsection{Placeholder}
 \begin{frame}
 	\begin{itemize}
-		\item[\cmark] Eigene Erfahrungen teilen
-		\item[\cmark] \textbf{Konstruktive} Kritik
+		\item[\cmark] Eigene Vorschl"age "ubermitteln
+		\item[\cmark] \textbf{Konstruktive} Kritik (eher wenig)
 		\item[\cmark] Aufgaben in akute und langfristige aufteilen
 		\item[\cmark] Anregung zur Diskussion
-		\item[\xmark] Schuldzuweisung
+%		\item[\xmark] Schuldzuweisung
 	\end{itemize}
 \end{frame}
 
@@ -169,7 +169,30 @@
 	}
 \end{frame}
 
-\begin{frame}{Stylechecking}
+\begin{frame}{Git Flow}
+	\begin{columns}[T] % align columns
+		\begin{column}{.4\textwidth}
+			\begin{center}
+				\includegraphics[scale=.2]{progit.png}
+			\end{center}
+		\end{column}
+		\hfill
+		\begin{column}{.8\textwidth}
+			\vfill
+			\begin{itemize}
+				\item \texttt{Git Command Line} verwenden
+				\item Repo Browser verwenden
+					\begin{description}[Windows]
+						\item[Windows] GitExtensions, SourceTree
+						\item[Linux] gitg, git-cola
+					\end{description}
+				\item Handbuch: Pro Git, 2nd Edition (kostenlos!)
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Statische Codeanalyse}
 	\begin{itemize}
 		\item Einheitliche Formatierung
 			\begin{itemize}
@@ -179,16 +202,16 @@
 				\item Keine Leerzeichen am Zeilenende
 				\item \texttt{text = 'netqa'} oder \texttt{text = "netqa"}?
 			\end{itemize}
-		\item Merge-Konflikte vermeiden
+		\item Unn"otige Merge-Konflikte vermeiden
 		\item Disziplin
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Stylechecking: Python}
+\begin{frame}{Statische Codeanalyse: Python}
 	\begin{itemize}
 		\item Minimalsatz an Regeln ausarbeiten		
 		\item \texttt{PEP\,8} und \texttt{Pylint}
-		\item Automatisches Stylechecking vor dem Commit bereits eingerichtet
+		\item Automatisches Stylechecking vor dem Commit bereits eingerichtet (\texttt{origin/git-repo-setup})
 		\item Aktuell 1554 Verletzungen
 		\item \texttt{Pylint} bietet Code-Rating an:
 	\end{itemize}
@@ -203,7 +226,7 @@
 	\end{center}
 \end{frame}
 
-\begin{frame}{Stylechecking: Javascript}
+\begin{frame}{Statische Codeanalyse: Javascript}
 	\begin{itemize}
 		\item Anwendung:
 			\begin{itemize}
@@ -216,35 +239,65 @@
 	\end{itemize}
 \end{frame}
 
+\begin{frame}{Code Review}
+	\begin{itemize}
+		\item In einer idealen Welt: immer
+		\item Vier-Augen-Prinzip
+		\item Kann z.\,B. durch Scrum abgedeckt werden
+	\end{itemize}
+\end{frame}
+
 \begin{frame}{Nightly Builds}
 	\begin{itemize}
-		\item Der Build-Prozess fehlt
-			\begin{itemize}
-				\item Standalone-Installer?
-				\item Web Service Deployment?
-			\end{itemize}
-		\item Integration mit Jenkins
-			\begin{itemize}
-				\item Cron-Job, startet um 23 Uhr
-				\item Baut \texttt{develop} und \texttt{release}
-				\item Setzt Tags in \texttt{Git} (Version usw)
-				\item F"uhrt Unit Tests aus
-				\item F"uhrt Integration Tests aus
-				\item Report wird am n"achsten Morgen evaluiert
-				\item Standalone: Stabile Builds werden Kunden zum Download angeboten
-				\item Web Service: Deployment auf den Production Server
-			\end{itemize}
+		\item Build = Endprodukt
+		\item Der Build-Prozess fehlt!
+		\item Standalone Installer?
+		\item Web Service Deployment?
+		\item $\ldots$?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Nightly Builds}
+	Minimale Integration in Jenkins:
+	\begin{itemize}
+		\item Cron-Job, startet um 23 Uhr
+		\item Baut \texttt{develop} und \texttt{release/master}
+		\item Setzt Tags in \texttt{Git} (Version usw)
+		\item F"uhrt Unit Tests aus
+		\item F"uhrt Integration Tests aus
+		\item Report wird am n"achsten Morgen evaluiert
+		\item Standalone: Stabile Builds werden Kunden zum Download angeboten
+		\item Web Service: Deployment auf den Production Server
+		\item Build"ubergreifende Metriken auswerten
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Tests}
+	\begin{itemize}
+		\item Aktuell (\texttt{nosetests --with-coverage}):
+		\item[]
+			\begin{tabular}{@{}llll@{}}
+			\toprule
+			Name & Stmts & Miss & Cover\\
+			\midrule
+			TOTAL & 1545 & 592 & 62\%\\
+			\bottomrule
+			\end{tabular}
+		\item[] \texttt{Ran 53 tests in 20.421s}
+		\item[] \texttt{FAILED (SKIP=1, errors=8)}
+		\item Gar nicht mal so "ubel
+		\item Integration Tests (wenn der Build-Prozess steht)
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{Versionierung}
 	\begin{equation*}
-		\underbrace{1}_{\text{Major}}.\underbrace{5}_{\text{Minor}}.\underbrace{11}_{\text{Features}}.\underbrace{255}_{\text{Survived Days}}
+		\underbrace{\underbrace{\underbrace{1}_{\text{Major}}.\underbrace{5}_{\text{Minor}}}_{\text{Release}}.\underbrace{11}_{\text{Features}}.\underbrace{255}_{\text{Survived Days}}}_{\text{Develop}}
 	\end{equation*}
 	\vfill
 	\begin{description}[Survived Days:]
 		\item[Major:] Version vom letzten Release
-		\item[Minor:] Bugfixes f"ur das letzte Release
+		\item[Minor:] Bugfixing-Releases
 		\item[Features:] Anzahl Features im aktuellen Develop
 		\item[Survived Days:] Anzahl Tage seit dem letzten Release
 		\item[Ansonsten:] \texttt{PEP\,396 -- Module Version Numbers}
@@ -252,16 +305,63 @@
 \end{frame}
 
 \section{Strategische Ziele}
+\subsection{Placeholder}
 
-\begin{frame}
+\begin{frame}{"Ubersicht}
 	\begin{itemize}
 		\item Specification-Dokument
+			\begin{itemize}
+				\item Systemanforderungen
+				\item Funktionalit"at
+				\item Interfaces nach au"sen
+				\item Screenshots
+				\item "Anderungen werden auch versioniert
+			\end{itemize}
 		\item Agiler Prozess
 			\begin{itemize}
-				\item Scrum
-				\item Kanban
+				\item Zu umfangreich -- separate Pr"asi?
+				\item Kommt erst nach dem Spec
+				\item $\text{Scrum} + \text{JIRA} = \Laughey$, $\text{Kanban} + \text{Trello} = \Neutrey$, $\ldots$?
 			\end{itemize}
 	\end{itemize}
+\end{frame}
+
+\begin{frame}{Scrum-Zyklus}
+	\begin{center}
+		\includegraphics[scale=.25]{scrum-process.eps}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Ticket-Lebenszyklus}
+	
+\end{frame}
+
+\begin{frame}{Scrum, Regeln}
+	\begin{itemize}
+		\item Alle Bugs werden im Bug Tracker persistiert
+		\item M"undlich berichtete Bugs (\glqq{}Den Fehler habe ich doch schon vor Wochen gesehen$\ldots$\grqq) werden ignoriert
+		\item Alle Ideen werden im Product Backlog persistiert
+		\item M"undlich ge"au"serte W"unsche (\glqq{}Kannst Du noch schnell ein Button einbauen?$\ldots$\grqq) werden ignoriert
+		\item B"urokratie \xmark
+		\item Aber: Nach der Gew"ohnungsphase dauert das Erstellen von Tickets selten mehr als 5 Minuten
+		\item Nichts geht verloren \cmark
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Nightly Builds, Revisited}
+	Erweiterte Integration mit Jenkins:
+	\begin{itemize}
+		\item Ein zus"atlicher Verifikationsschritt im Ticket-Lebenszyklus durch Jenkins
+		\item Sammelt alle am Tag verifizierten Tickets
+		\item Solange ein Fehler beim Testen auftritt:
+			\begin{itemize}
+				\item Findet fehlerhaften Commit mit \texttt{git bisect}
+				\item Ordnet den Commit dem Ticket zu
+				\item "Offnet das Ticket
+			\end{itemize}
+		\item Schlie"st alle nicht wiederge"offneten Tickets endg"ultig
+	\end{itemize}
+	Bessere Integration: $\text{Bamboo} + \text{JIRA}$
 \end{frame}
 
 \end{document}
