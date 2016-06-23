@@ -17,6 +17,9 @@
 
 \graphicspath{{./images/}{./images/logos/}}
 
+\setbeamertemplate{itemize subitem}{$\blacktriangleright$}
+%\renewcommand{\labelitemii}{$\blacktriangleright$}
+
 \begin{document}
 
 \title{Softwareentwicklungsprozess: \\ Vorschl"age}
@@ -182,6 +185,12 @@
 			\vfill
 			\begin{itemize}
 				\item \texttt{Git Command Line} verwenden
+				\item Terminal einrichten
+					\begin{itemize}
+						\item Tab-Vervollst"andigung
+						\item Vorw"arts-/R"uckw"artssuche im Command Log
+						\item Farben
+					\end{itemize}
 				\item Repo Browser verwenden
 					\begin{description}[Windows]
 						\item[Windows] GitExtensions, SourceTree
@@ -244,7 +253,7 @@
 	\begin{itemize}
 		\item In einer idealen Welt: immer
 		\item Vier-Augen-Prinzip
-		\item Kann z.\,B. durch Scrum abgedeckt werden
+		\item Kann z.\,B. durch Scrum erzwungen werden
 	\end{itemize}
 \end{frame}
 
@@ -323,15 +332,22 @@
 				\item Zu umfangreich -- separate Pr"asi?
 				\item (Au"serdem keine guten Folien vorbereitet \Sadey)
 				\item Kommt erst nach dem Spec
-				\item Deckt ab:
-					\begin{itemize}
-						\item Projektplanung
-						\item Bugtracking
-						\item Feature Requests
-						\item Zeitmanagement
-					\end{itemize}
-				\item $\text{Scrum} + \text{JIRA} = \Laughey$, $\text{Kanban} + \text{Trello} = \Neutrey$, $\ldots$?
 			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Agiler Prozess}
+	\begin{itemize}
+		\item Ziel: schnell Ergebnisse liefern
+		\item Ein Entwicklungszyklus wird in 2-3 Wochen abgeschlossen (Rolling Release)
+		\item Deckt ab:
+			\begin{itemize}
+				\item Projektplanung
+				\item Zeitmanagement
+				\item Bugfixing
+				\item Implementation von neuen Features
+			\end{itemize}
+		\item $\text{Scrum} + \text{JIRA} = \Laughey$, $\text{Kanban} + \text{Trello} = \Neutrey$, $\ldots$?
 	\end{itemize}
 \end{frame}
 
