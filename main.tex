@@ -9,6 +9,7 @@
 \usepackage{tikz}
 \usepackage{tikzsymbols}
 \usepackage{booktabs}
+\usepackage{minted}
 
 \newcommand{\cmark}{\ding{51}}
 \newcommand{\xmark}{\ding{55}}
@@ -41,7 +42,6 @@
 		\item[\cmark] \textbf{Konstruktive} Kritik (eher wenig)
 		\item[\cmark] Aufgaben in akute und langfristige aufteilen
 		\item[\cmark] Anregung zur Diskussion
-%		\item[\xmark] Schuldzuweisung
 	\end{itemize}
 \end{frame}
 
@@ -212,6 +212,7 @@
 				\item Keine Leerzeichen am Zeilenende
 				\item \texttt{text = 'netqa'} oder \texttt{text = "netqa"}?
 			\end{itemize}
+		\item Potenzielle Bugs fr"uh abfangen
 		\item Unn"otige Merge-Konflikte vermeiden
 		\item Disziplin
 	\end{itemize}
@@ -282,22 +283,35 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Tests}
+\begin{frame}[fragile]{Tests}
 	\begin{itemize}
-		\item Aktuell (\texttt{nosetests --with-coverage}):
-		\item[]
-			\begin{tabular}{@{}llll@{}}
-			\toprule
-			Name & Stmts & Miss & Cover\\
-			\midrule
-			TOTAL & 1545 & 592 & 62\%\\
-			\bottomrule
-			\end{tabular}
-		\item[] \texttt{Ran 53 tests in 20.421s}
-		\item[] \texttt{FAILED (SKIP=1, errors=8)}
-		\item Gar nicht mal so "ubel
+		\item Aktuell: 62\% Abdeckung
+		\item Gar nicht mal so "ubel, wenn \texttt{coverage} richtig liegt
 		\item Systemtests (wenn der Build-Prozess steht)
 	\end{itemize}
+	
+	\begin{overprint}
+	\onslide<1>
+	\begin{minted}{bash}
+	$ nosetests --with-coverage \
+		--cover-package=NetqaFwRoot
+	---------------------------
+	Name   Stmts   Miss   Cover
+	TOTAL  1545    592    62%
+	---------------------------
+	Ran 53 tests in 20.421s
+	FAILED (SKIP=1, errors=8)
+	\end{minted}
+	
+	\onslide<2>
+	\begin{minted}{bash}
+	$ find NetqaFwRoot/ -type f -iname '*.py' \
+		-not -path "*/tests/*" \
+		| xargs sed '/^\s*#/d;/^\s*$/d' \
+		| wc -l
+	4846
+	\end{minted}
+	\end{overprint}
 \end{frame}
 
 \begin{frame}{Versionierung}
