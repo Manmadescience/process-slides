@@ -237,6 +237,22 @@
 	\end{center}
 \end{frame}
 
+\begin{frame}[fragile]{\texttt{Python3.5}, Typing}
+Typisierung in der Signatur:
+	\begin{minted}{python}
+	def greeting(name: str) -> str:
+	    return 'Hello {0}'.format(name)
+	\end{minted}
+Generics:
+	\begin{minted}{python}
+	from typing import Sequence, TypeVar
+	T = TypeVar('T')  # Declare type variable
+	def first(seq: Sequence[T]) -> T:
+    	return seq[0]
+	\end{minted}
+Durch \texttt{Pylint} "uberpr"ufbar?
+\end{frame}
+
 \begin{frame}{Statische Codeanalyse: Javascript}
 	\begin{itemize}
 		\item Anwendung:
