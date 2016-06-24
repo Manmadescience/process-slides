@@ -385,44 +385,87 @@ Durch \texttt{Pylint} "uberpr"ufbar?
 		\item Auslieferung
 		\item Funktionalit"at als Flie"stext
 		\item Interfaces nach au"sen
-		\item Optional: UML (Structural & Behavioral Diagrams)
+		\item Optional: UML (Structural/Behavioral Diagrams)
 		\item Screenshots vom GUI bzw. Mockups
 		\item "Anderungen werden auch versioniert
 		\item Zeitfenster f"ur Modifikation und Spec Freeze
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{"Ubersicht}
+\begin{frame}{Agiler Prozess}
 	\begin{itemize}
-		\item Specification-Dokument
-			\begin{itemize}
-				\item Systemanforderungen
-				\item Funktionalit"at
-				\item Interfaces nach au"sen
-				\item Screenshots vom GUI bzw. Mockups
-				\item "Anderungen werden auch versioniert
-			\end{itemize}
-		\item Agiler Prozess
-			\begin{itemize}
-				\item Zu umfangreich -- separate Pr"asi?
-				\item (Au"serdem keine guten Folien vorbereitet \Sadey)
-				\item Kommt erst nach dem Spec
-			\end{itemize}
+		\item Zu umfangreich -- separate Pr"asi?
+		\item (Au"serdem keine guten Folien vorbereitet \Sadey)
+		\item Kommt erst nach dem Spec
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{Agiler Prozess}
 	\begin{itemize}
-		\item Ziel: schnell Ergebnisse liefern
-		\item Ein Entwicklungszyklus wird in 2-3 Wochen abgeschlossen (Rolling Release)
+		\item Ziel: schnell Ergebnisse in kleinen Paketen liefern
+		\item Ein Entwicklungszyklus wird in 1-4 Wochen abgeschlossen (Rolling Release)
 		\item Deckt ab:
 			\begin{itemize}
 				\item Projektplanung
 				\item Zeitmanagement
 				\item Bugfixing
 				\item Implementation von neuen Features
+				\item $\ldots$
 			\end{itemize}
-		\item $\text{Scrum} + \text{JIRA} = \Laughey$, $\text{Kanban} + \text{Trello} = \Neutrey$, $\ldots$?
+		\item $\text{Scrum} + \text{JIRA} = \Laughey$, $\text{Kanban/Scrum} + \text{Trello} = \Sadey$, $\ldots$?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Scrum, Rollen: Product Owner}
+	\begin{itemize}
+		\item Product Owner
+			\begin{itemize}
+				\item $n = 1$
+				\item Schnittstelle zwischen dem Kunden/dem Stakeholder und dem Entwicklungsteam
+				\item Organisiert Sprint/Milestone Reviews
+				\item Setzt die Fristen fest
+				\item Definiert Release Dates und leitet das Release ein
+				\item Beantwortet alle Fragen seitens Kunden/Stakeholder bzgl.\,dem Entwicklungsprozess
+				\item \textbf{Muss in der Lage sein, sich in die Rolle des Kunden und des Entwicklers versetzen}
+				\item $\ldots$
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Scrum, Rollen: Scrum Master}
+	\only<1>{
+		\begin{center}
+			\includegraphics[scale=.3]{scrum-master.png}
+		\end{center}
+	}
+	\only<2>{
+		\begin{itemize}
+		\item Scrum Master
+			\begin{itemize}
+				\item $n = 1$
+				\item Der Scrum-Experte
+				\item Unterst"utzt das Team bei der Selbstorganisierung
+				\item \textbf{Kann} das Team bei der Entwicklung unterst"utzen
+				\item Macht Coaching
+				\item F"uhrt Daily Meetings durch
+				\item $\ldots$
+				\item Entf"allt mit wachsender Erfahrung des Teams
+			\end{itemize}
+		\end{itemize}
+	}
+\end{frame}
+
+\begin{frame}{Scrum, Rollen: Entwickler}
+	\begin{itemize}
+		\item Entwicklungsteam
+			\begin{itemize}
+				\item $2 \leq n \leq 10$
+				\item \textbf{Selbstorganisierend}
+				\item Design
+				\item Implementation
+				\item Tests
+				\item Technische Dokumentation (z.B.\,keine Release Notes!)
+			\end{itemize}
 	\end{itemize}
 \end{frame}
 
@@ -440,10 +483,11 @@ Durch \texttt{Pylint} "uberpr"ufbar?
 
 \begin{frame}{Scrum, Regeln}
 	\begin{itemize}
+		\item Ein gestartetes Sprint ist unantastbar
 		\item Alle Bugs werden im Bug Tracker persistiert
-		\item M"undlich berichtete Bugs (\glqq{}Den Fehler habe ich doch schon vor Wochen gesehen$\ldots$\grqq) werden ignoriert
+		\item M"undlich berichtete Bugs werden ignoriert
 		\item Alle Ideen werden im Product Backlog persistiert
-		\item M"undlich ge"au"serte W"unsche (\glqq{}Kannst Du noch schnell ein Button einbauen?$\ldots$\grqq) werden ignoriert
+		\item M"undlich ge"au"serte W"unsche werden ignoriert
 		\item B"urokratie \xmark
 		\item Aber: Nach der Gew"ohnungsphase dauert das Erstellen von Tickets selten mehr als 5 Minuten
 		\item Nichts geht verloren \cmark
