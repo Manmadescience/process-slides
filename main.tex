@@ -18,6 +18,12 @@
 
 \graphicspath{{./images/}{./images/logos/}}
 
+%\newenvironment{okenv}{\only{\setbeamercolor{local structure}{fg=green} \setbeamerfont{local structure}{series=\bfseries}}}{}
+\newenvironment{okenv}{\only{\setbeamercolor{local structure}{fg=green} \setbeamerfont{item}{series=\bfseries}}}{}
+\newenvironment{secondaryenv}{\only{\setbeamercolor{local structure}{fg=gray} \setbeamerfont{item}{series=\bfseries}}}{}
+\newenvironment{nokenv}{\only{\setbeamercolor{local structure}{fg=red} \setbeamerfont{item}{series=\bfseries}}}{}
+
+%\setbeamerfont{alerted text}{series=\bfseries}
 \setbeamertemplate{itemize subitem}{$\blacktriangleright$}
 %\renewcommand{\labelitemii}{$\blacktriangleright$}
 
@@ -352,6 +358,36 @@ Durch \texttt{Pylint} "uberpr"ufbar?
 
 \section{Strategische Ziele}
 \subsection{Placeholder}
+
+\begin{frame}{Recap}
+	\begin{columns}[T]
+		\begin{column}{.5\linewidth}
+			\footnotesize{
+				\begin{enumerate}
+					\item<1-2 |ok@2> {\only<2>{\color{green}\bfseries}Do you use source control? \cmark}
+					\item<1-7 |nok@6-7> {\only<6-7>{\color{red}\bfseries}Can you make a build in one step? \only<1-6>{\xmark} \only<7>{(TBD)}}
+					\item<1-7 |nok@6-7> {\only<6-7>{\color{red}\bfseries}Do you make daily builds? \only<1-6>{\xmark} \only<7>{(TBD)}}
+					\item<1-2 |ok@2> {\only<2>{\color{green}\bfseries} Do you have a bug database? \cmark}
+					\item<1-2 |ok@2> {\only<2>{\color{green}\bfseries} Do you fix bugs before writing new code? \cmark}
+					\item<1-8> Do you have an up-to-date schedule? \xmark
+				\end{enumerate}
+			}
+		\end{column}
+		\begin{column}{.5\linewidth}
+			\footnotesize{
+				\begin{enumerate}
+					\setcounter{enumi}{6}
+					\item<1-8> Do you have a spec? \xmark
+					\item<1-2 |ok@2> {\only<2>{\color{green}\bfseries} Do programmers have quiet working conditions? \cmark}
+					\item<1-2 |ok@2> {\only<2>{\color{green}\bfseries} Do you use the best tools money can buy? \cmark}
+					\item<1-2 |ok@2> {\only<2>{\color{green}\bfseries} Do you have testers? \cmark}
+					\item<1-4 |secondary@4> {\only<4>{\color{gray}\bfseries} Do new candidates write code during their interview? \xmark}
+					\item<1-4 |secondary@4> {\only<4>{\color{gray}\bfseries} Do you do hallway usability testing? \xmark}
+				\end{enumerate}
+			}
+		\end{column}
+	\end{columns}
+\end{frame}
 
 \begin{frame}{Spezifikation}
 	\begin{center}
