@@ -10,6 +10,7 @@
 \usepackage{tikzsymbols}
 \usepackage{booktabs}
 \usepackage{minted}
+\usepackage{ulem}
 
 \newcommand{\cmark}{\ding{51}}
 \newcommand{\xmark}{\ding{55}}
@@ -356,6 +357,58 @@ Durch \texttt{Pylint} "uberpr"ufbar?
 	\end{description}
 \end{frame}
 
+\section{JIRA}
+\subsection{Placeholder}
+\begin{frame}{JIRA}
+	\begin{columns}[T]
+		\begin{column}{.33\linewidth}
+			\vfill
+			\includegraphics[scale=.15]{jira-audi.png} \hfill \includegraphics[scale=.15]{jira-docker.png}
+			\vfill
+			\includegraphics[scale=.15]{jira-dod.png} \hfill \includegraphics[scale=.15]{jira-nasa.png}
+			\vfill
+			\includegraphics[scale=.15]{jira-sothebys.png} \hfill \includegraphics[scale=.15]{jira-spotify.png}
+			\vfill
+			\begin{center}
+				\includegraphics[scale=.2]{jira-twitter.png}
+			\end{center}
+		\end{column}
+		\hfill
+		\begin{column}{.66\linewidth}
+			\begin{itemize}
+				\item[\cmark] Bugtracker + Feature-Datenbank + Prozessplanung in einem Tool
+				\item[\cmark] Native Scrum-Unterst"utzung
+				\item[\cmark] Mit Plugins erweiterbar
+				\item[\cmark] Lokales Deployment oder Cloud Hosting
+				\item[\cmark] Etabliert
+				\item[\cmark] Eine Palette von Zusatztools (Bitbucket, Bamboo, HipChat, SourceTree, $\ldots$)
+				\item[\xmark] Kostet Geld
+				\item[\xmark] Keine In-House-Apps (iOS/Android)
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Problem}
+	\begin{itemize}
+		\item \texttt{FWSCRUM-13}
+		\item \texttt{FWSCRUM-32}
+		\item L"osung: Ticket-Lebenszyklus bestimmen und in der Zukunft beachten
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Ticket-Lebenszyklus}
+	\begin{center}
+		\includegraphics[scale=.5]{jira-ticket-lifecycle.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Ticket-Lebenszyklus}
+	\resizebox{!}{.75\textheight}{
+		\input{jira-ticket-lifecycle}
+	}
+\end{frame}
+
 \section{Strategische Ziele}
 \subsection{Placeholder}
 
@@ -430,8 +483,8 @@ Durch \texttt{Pylint} "uberpr"ufbar?
 
 \begin{frame}{Agiler Prozess}
 	\begin{itemize}
-		\item Zu umfangreich -- separate Pr"asi?
-		\item (Au"serdem keine guten Folien vorbereitet \Sadey)
+		\item \sout{Zu umfangreich -- separate Pr"asi?}
+		\item \sout{(Au"serdem keine guten Folien vorbereitet \Sadey)}
 		\item Kommt erst nach dem Spec
 	\end{itemize}
 \end{frame}
@@ -450,6 +503,12 @@ Durch \texttt{Pylint} "uberpr"ufbar?
 			\end{itemize}
 		\item $\text{Scrum} + \text{JIRA} = \Laughey$, $\text{Kanban/Scrum} + \text{Trello} = \Sadey$, $\ldots$?
 	\end{itemize}
+\end{frame}
+
+\begin{frame}{Scrum-Zyklus}
+	\begin{center}
+		\includegraphics[scale=.25]{scrum-process.eps}
+	\end{center}
 \end{frame}
 
 \begin{frame}{Scrum, Rollen: Product Owner}
@@ -503,18 +562,6 @@ Durch \texttt{Pylint} "uberpr"ufbar?
 				\item Technische Dokumentation (z.B.\,keine Release Notes!)
 			\end{itemize}
 	\end{itemize}
-\end{frame}
-
-\begin{frame}{Scrum-Zyklus}
-	\begin{center}
-		\includegraphics[scale=.25]{scrum-process.eps}
-	\end{center}
-\end{frame}
-
-\begin{frame}{Ticket-Lebenszyklus}
-	\begin{center}
-		\includegraphics[scale=.5]{jira-ticket-lifecycle.png}
-	\end{center}
 \end{frame}
 
 \begin{frame}{Scrum, Regeln}
